@@ -13,7 +13,6 @@
   const $ = (id) => document.getElementById(id);
   const artistList = $("artist-list");
   const artistCount = $("artist-count");
-  const counts = $("counts");
   const empty = $("empty");
   const panel = $("artist-panel");
   const artistName = $("artist-name");
@@ -68,27 +67,6 @@
       artistList.appendChild(li);
     }
     artistCount.textContent = `(${list.length})`;
-
-    let totalAlbums = 0, totalPressings = 0, withFiche = 0, withCover = 0;
-    const years = [];
-    for (const a of list) {
-      for (const al of a.albums) {
-        totalAlbums++;
-        totalPressings += al.pressings.length;
-        if (fiches[al.key]) withFiche++;
-        if (covers[al.key]) withCover++;
-        const y = parseInt(al.released, 10);
-        if (y >= 1900 && y <= 2100) years.push(y);
-      }
-    }
-    const yearStr = years.length ? `${Math.min(...years)}–${Math.max(...years)}` : "—";
-    counts.innerHTML =
-      `<b>${list.length}</b> artistes · ` +
-      `<b>${totalAlbums}</b> albums · ` +
-      `<b>${totalPressings}</b> pressages · ` +
-      `<b>${yearStr}</b> · ` +
-      `<b>${withFiche}</b> fiches · ` +
-      `<b>${withCover}</b> covers`;
   }
 
   function selectArtist(name) {
@@ -234,7 +212,11 @@
     if (e.target.closest("[data-close]")) closeModal();
   });
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !document.getElementById("modal").hidden) closeModal();
+    if (e.key === "Escape") {
+      if (!document.getElementById("modal").hidden) closeModal();
+      const stats = document.getElementById("easter-stats");
+      if (stats) stats.remove();
+    }
   });
 
   document.getElementById("q").addEventListener("input", (e) => {
@@ -245,37 +227,53 @@
     if (list.length === 1) selectArtist(list[0].artist);
   });
 
-  // ───────── Easter eggs ─────────
+  // ───────── Panneau stats ─────────
 
-  // 1. Compteur secret : 5 clics rapides sur le titre = panneau stats cachees
-  (function () {
-    const title = document.querySelector(".brand h1");
-    if (!title) return;
-    let clicks = 0;
-    let timer = null;
-    title.addEventListener("click", () => {
-      clicks++;
-      clearTimeout(timer);
-      timer = setTimeout(() => { clicks = 0; }, 2500);
-      if (clicks >= 5) { clicks = 0; showSecretStats(); }
-    });
-  })();
+  document.getElementById("stats-btn").addEventListener("click", showStats);
 
-  function topKey(obj) {
-    let bestKey = null, bestN = -1;
-    for (const k in obj) if (obj[k] > bestN) { bestN = obj[k]; bestKey = k; }
-    return bestKey ? { key: bestKey, count: bestN } : null;
+  function topN(obj, n) {
+    return Object.entries(obj)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, n);
   }
 
-  function showSecretStats() {
+  function bar(value, max, width = 18) {
+    const n = Math.max(1, Math.round((value / max) * width));
+    return "█".repeat(n) + "░".repeat(width - n);
+  }
+
+  function showStats() {
     if (document.getElementById("easter-stats")) return;
 
+    // Collecte des stats sur toute la collection (pas filtree)
     const years = [];
     const decade = {}, label = {}, format = {};
+    const condition = {}, sleeve = {}, ratings = [];
+    const albumsByArtist = {};
+    const pressingsByAlbum = {};
+    const addedDates = [];
     let totalPressings = 0, totalAlbums = 0;
+    let mostPressedAlbum = null;
+    let longestFiche = null, longestFicheLen = 0;
+    let totalFicheChars = 0;
+    let coversCount = 0;
+
     for (const a of collection) {
+      albumsByArtist[a.artist] = a.albums.length;
       for (const al of a.albums) {
         totalAlbums++;
+        if (covers[al.key]) coversCount++;
+        if (fiches[al.key]) {
+          totalFicheChars += fiches[al.key].length;
+          if (fiches[al.key].length > longestFicheLen) {
+            longestFicheLen = fiches[al.key].length;
+            longestFiche = `${a.artist} — ${al.title}`;
+          }
+        }
+        pressingsByAlbum[`${a.artist} — ${al.title}`] = al.pressings.length;
+        if (al.pressings.length > 1 && (!mostPressedAlbum || al.pressings.length > mostPressedAlbum.n)) {
+          mostPressedAlbum = { name: `${a.artist} — ${al.title}`, n: al.pressings.length };
+        }
         for (const p of al.pressings) {
           totalPressings++;
           const y = parseInt(p.released || al.released || "", 10);
@@ -284,19 +282,53 @@
             const d = Math.floor(y / 10) * 10;
             decade[d] = (decade[d] || 0) + 1;
           }
-          if (p.label) label[p.label] = (label[p.label] || 0) + 1;
+          if (p.label) {
+            for (const lbl of p.label.split(",")) {
+              const cleaned = lbl.trim();
+              if (cleaned) label[cleaned] = (label[cleaned] || 0) + 1;
+            }
+          }
           if (p.format) {
             const f = p.format.split(",")[0].trim();
             if (f) format[f] = (format[f] || 0) + 1;
           }
+          if (p.media_condition) condition[p.media_condition] = (condition[p.media_condition] || 0) + 1;
+          if (p.sleeve_condition) sleeve[p.sleeve_condition] = (sleeve[p.sleeve_condition] || 0) + 1;
+          const r = parseInt(p.rating, 10);
+          if (r >= 1 && r <= 5) ratings.push(r);
+          if (p.date_added) addedDates.push(p.date_added);
         }
       }
     }
+
     const oldest = years.length ? Math.min(...years) : "—";
     const newest = years.length ? Math.max(...years) : "—";
-    const dec = topKey(decade);
-    const lab = topKey(label);
-    const fmt = topKey(format);
+    const avgRating = ratings.length ? (ratings.reduce((s, n) => s + n, 0) / ratings.length).toFixed(2) : "—";
+    const mintCount = Object.entries(condition).filter(([k]) => /Mint/i.test(k)).reduce((s, [, n]) => s + n, 0);
+    const badCount = Object.entries(condition).filter(([k]) => /Good \(G\)|Poor|Fair/i.test(k) && !/Very Good/i.test(k)).reduce((s, [, n]) => s + n, 0);
+    addedDates.sort();
+    const firstAdded = addedDates[0] ? addedDates[0].split(" ")[0] : "—";
+    const lastAdded = addedDates[addedDates.length - 1] ? addedDates[addedDates.length - 1].split(" ")[0] : "—";
+
+    const topArtists = topN(albumsByArtist, 5);
+    const topLabels = topN(label, 5);
+    const topFormats = topN(format, 4);
+
+    // Histogramme decennies
+    const decKeys = Object.keys(decade).map(Number).sort((a, b) => a - b);
+    const decMax = Math.max(...Object.values(decade));
+    const decadesHtml = decKeys.map(d => {
+      const n = decade[d];
+      return `<div class="es-row"><span class="es-decade-label">${d}s</span><span class="es-bar">${bar(n, decMax)}</span><span class="es-bar-n">${n}</span></div>`;
+    }).join("");
+
+    const renderList = (entries) => entries.map(([k, v]) =>
+      `<div class="es-row"><span class="es-row-key">${escapeHtml(k)}</span><span class="es-row-val">${v}</span></div>`
+    ).join("");
+
+    const uniqueLabels = Object.keys(label).length;
+    const uniqueFormats = Object.keys(format).length;
+    const avgFicheChars = totalAlbums ? Math.round(totalFicheChars / totalAlbums) : 0;
 
     const panel = document.createElement("div");
     panel.id = "easter-stats";
@@ -304,16 +336,62 @@
     panel.innerHTML = `
       <div class="easter-stats-inner">
         <button class="easter-close" aria-label="Fermer">&times;</button>
-        <div class="easter-title">✦ Stats secretes ✦</div>
-        <ul>
-          <li>Pressage le plus ancien : <b>${oldest}</b></li>
-          <li>Pressage le plus recent : <b>${newest}</b></li>
-          <li>Decennie dominante : <b>${dec ? dec.key + "s" : "—"}</b> ${dec ? `<span class="muted-i">(${dec.count} pressages)</span>` : ""}</li>
-          <li>Label le plus represente : <b>${lab ? escapeHtml(lab.key) : "—"}</b> ${lab ? `<span class="muted-i">(${lab.count}×)</span>` : ""}</li>
-          <li>Format dominant : <b>${fmt ? escapeHtml(fmt.key) : "—"}</b> ${fmt ? `<span class="muted-i">(${fmt.count}×)</span>` : ""}</li>
-          <li>Total : <b>${totalAlbums}</b> albums, <b>${totalPressings}</b> pressages</li>
-        </ul>
-        <div class="easter-foot">tu connais le secret maintenant</div>
+        <div class="easter-title">✦ Stats de la collection ✦</div>
+
+        <div class="es-grid">
+          <section class="es-section">
+            <h4>Apercu</h4>
+            <div class="es-row"><span>Artistes</span><b>${collection.length}</b></div>
+            <div class="es-row"><span>Albums uniques</span><b>${totalAlbums}</b></div>
+            <div class="es-row"><span>Pressages</span><b>${totalPressings}</b></div>
+            <div class="es-row"><span>Labels distincts</span><b>${uniqueLabels}</b></div>
+            <div class="es-row"><span>Formats distincts</span><b>${uniqueFormats}</b></div>
+            <div class="es-row"><span>Annees couvertes</span><b>${oldest} – ${newest}</b></div>
+            <div class="es-row"><span>Note moyenne (notes)</span><b>${avgRating}${ratings.length ? ` <span class="muted-i">/5 sur ${ratings.length}</span>` : ""}</b></div>
+          </section>
+
+          <section class="es-section">
+            <h4>Records</h4>
+            <div class="es-row"><span>Pressage + ancien</span><b>${oldest}</b></div>
+            <div class="es-row"><span>Pressage + recent</span><b>${newest}</b></div>
+            <div class="es-row"><span>Album le + represse</span><b>${mostPressedAlbum ? escapeHtml(mostPressedAlbum.name) + ` <span class="muted-i">(${mostPressedAlbum.n}×)</span>` : "—"}</b></div>
+            <div class="es-row"><span>Mint / Near Mint</span><b>${mintCount} <span class="muted-i">pressages</span></b></div>
+            <div class="es-row"><span>Etat &lt; VG</span><b>${badCount} <span class="muted-i">pressages</span></b></div>
+            <div class="es-row"><span>Fiches ecrites</span><b>${Object.keys(fiches).length} / ${totalAlbums}</b></div>
+            <div class="es-row"><span>Covers recuperees</span><b>${coversCount} / ${totalAlbums}</b></div>
+            <div class="es-row"><span>Premier ajout</span><b>${firstAdded}</b></div>
+            <div class="es-row"><span>Dernier ajout</span><b>${lastAdded}</b></div>
+          </section>
+
+          <section class="es-section es-section-wide">
+            <h4>Top 5 artistes <span class="muted-i">par nb albums</span></h4>
+            ${renderList(topArtists)}
+          </section>
+
+          <section class="es-section es-section-wide">
+            <h4>Top 5 labels <span class="muted-i">par nb pressages</span></h4>
+            ${renderList(topLabels)}
+          </section>
+
+          <section class="es-section es-section-wide">
+            <h4>Formats principaux</h4>
+            ${renderList(topFormats)}
+          </section>
+
+          <section class="es-section es-section-wide">
+            <h4>Decennies</h4>
+            ${decadesHtml || '<div class="es-row"><span class="muted-i">aucune annee renseignee</span></div>'}
+          </section>
+
+          <section class="es-section es-section-wide">
+            <h4>Ecriture</h4>
+            <div class="es-row"><span>Total caracteres ecrits</span><b>${totalFicheChars.toLocaleString("fr-FR")}</b></div>
+            <div class="es-row"><span>Moyenne / album</span><b>${avgFicheChars} car.</b></div>
+            <div class="es-row"><span>Fiche la + longue</span><b>${longestFiche ? escapeHtml(longestFiche) + ` <span class="muted-i">(${longestFicheLen} car.)</span>` : "—"}</b></div>
+          </section>
+        </div>
+
+        <div class="easter-foot">echappe / clic exterieur pour fermer</div>
       </div>`;
     document.body.appendChild(panel);
     panel.querySelector(".easter-close").addEventListener("click", () => panel.remove());
