@@ -216,6 +216,7 @@
       if (!document.getElementById("modal").hidden) closeModal();
       const stats = document.getElementById("easter-stats");
       if (stats) stats.remove();
+      if (document.getElementById("sidebar").classList.contains("open")) closeSidebar();
     }
   });
 
@@ -224,7 +225,31 @@
     renderSidebar();
     // auto-pick si une seule reponse
     const list = filteredArtists();
-    if (list.length === 1) selectArtist(list[0].artist);
+    if (list.length === 1) {
+      selectArtist(list[0].artist);
+      closeSidebar();
+    }
+  });
+
+  // ───────── Drawer mobile (liste artistes) ─────────
+  const sidebar = document.getElementById("sidebar");
+  const sidebarBackdrop = document.getElementById("sidebar-backdrop");
+  function openSidebar() {
+    sidebar.classList.add("open");
+    sidebarBackdrop.hidden = false;
+    sidebarBackdrop.classList.add("show");
+  }
+  function closeSidebar() {
+    sidebar.classList.remove("open");
+    sidebarBackdrop.classList.remove("show");
+    sidebarBackdrop.hidden = true;
+  }
+  document.getElementById("list-btn").addEventListener("click", openSidebar);
+  document.getElementById("sidebar-close").addEventListener("click", closeSidebar);
+  sidebarBackdrop.addEventListener("click", closeSidebar);
+  // fermer auto au clic sur un artiste (mobile)
+  document.getElementById("artist-list").addEventListener("click", (e) => {
+    if (e.target.closest("li") && window.matchMedia("(max-width: 760px)").matches) closeSidebar();
   });
 
   // ───────── Positions aleatoires des blobs (figees au load) ─────────

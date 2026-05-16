@@ -32,12 +32,19 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="20" x2="6" y2="12"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="18" y1="20" x2="18" y2="9"/></svg>
         <span>Stats</span>
       </button>
+      <button id="list-btn" class="list-btn" type="button" title="Ouvrir la liste des artistes" aria-label="Ouvrir la liste">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg>
+      </button>
     </div>
   </header>
 
   <main class="layout">
+    <div id="sidebar-backdrop" class="sidebar-backdrop" hidden></div>
     <aside id="sidebar" class="sidebar" aria-label="Liste des artistes">
-      <div class="sidebar-head">Artistes <span id="artist-count"></span></div>
+      <div class="sidebar-head">
+        <span>Artistes <span id="artist-count"></span></span>
+        <button id="sidebar-close" class="sidebar-close" type="button" aria-label="Fermer la liste">&times;</button>
+      </div>
       <ol id="artist-list" class="artist-list"></ol>
     </aside>
 
