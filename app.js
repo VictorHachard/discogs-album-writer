@@ -227,6 +227,26 @@
     if (list.length === 1) selectArtist(list[0].artist);
   });
 
+  // ───────── Positions aleatoires des blobs (figees au load) ─────────
+  (function () {
+    const b1 = document.querySelector(".blob-1");
+    const b2 = document.querySelector(".blob-2");
+    if (!b1 || !b2) return;
+    // blob-1 ancre par top/left, blob-2 par bottom/right -> les valeurs sont
+    // "decalages depuis ce coin" ; negatif = blob deborde hors ecran.
+    const arrangements = [
+      { p1: { top: "-25%", left: "-20%" }, p2: { bottom: "-25%", right: "-20%" } }, // diag NO -> SE
+      { p1: { top: "-25%", left: "55%"  }, p2: { bottom: "-25%", right: "55%"  } }, // diag NE -> SO
+      { p1: { top: "-30%", left: "15%"  }, p2: { bottom: "-30%", right: "15%"  } }, // axe vertical
+      { p1: { top: "15%",  left: "-30%" }, p2: { bottom: "15%",  right: "-30%" } }, // axe horizontal
+      { p1: { top: "0%",   left: "-10%" }, p2: { bottom: "0%",   right: "-10%" } }, // diag interieure
+      { p1: { top: "10%",  left: "45%"  }, p2: { bottom: "10%",  right: "45%"  } }, // diag inverse interieure
+    ];
+    const a = arrangements[Math.floor(Math.random() * arrangements.length)];
+    Object.assign(b1.style, a.p1);
+    Object.assign(b2.style, a.p2);
+  })();
+
   // ───────── Panneau stats ─────────
 
   document.getElementById("stats-btn").addEventListener("click", showStats);
