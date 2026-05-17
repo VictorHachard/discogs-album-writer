@@ -252,6 +252,76 @@
     if (e.target.closest("li") && window.matchMedia("(max-width: 760px)").matches) closeSidebar();
   });
 
+  // ───────── Installation PWA ─────────
+  (function () {
+    const installBtn = document.getElementById("install-btn");
+    const installModal = document.getElementById("install-modal");
+    const stepsIos = document.getElementById("install-steps-ios");
+    const stepsAndroid = document.getElementById("install-steps-android");
+    if (!installBtn || !installModal) return;
+
+    const ua = navigator.userAgent || "";
+    // iPadOS recent renvoie un UA "MacIntel" -> on detecte aussi via touch.
+    const isIos = /iphone|ipad|ipod/i.test(ua)
+              || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    const isStandalone = window.matchMedia("(display-mode: standalone)").matches
+                      || window.navigator.standalone === true;
+
+    // Deja installe -> bouton masque
+    if (isStandalone) return;
+
+    let deferredPrompt = null;
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installBtn.hidden = false;
+    });
+
+    // iOS Safari ne supporte pas beforeinstallprompt -> on affiche quand meme le bouton
+    if (isIos) installBtn.hidden = false;
+
+    function openInstallModal() {
+      if (stepsIos && stepsAndroid) {
+        stepsIos.hidden = !isIos;
+        stepsAndroid.hidden = isIos;
+      }
+      installModal.hidden = false;
+      requestAnimationFrame(() => installModal.classList.add("show"));
+    }
+    function closeInstallModal() {
+      installModal.classList.remove("show");
+      // attendre la fin du fondu pour repasser en hidden
+      setTimeout(() => { installModal.hidden = true; }, 260);
+    }
+
+    installBtn.addEventListener("click", async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        deferredPrompt = null;
+        if (outcome === "accepted") installBtn.hidden = true;
+        return;
+      }
+      // Pas de prompt natif -> instructions (iOS, ou desktop sans event)
+      openInstallModal();
+    });
+
+    window.addEventListener("appinstalled", () => {
+      installBtn.hidden = true;
+      deferredPrompt = null;
+    });
+
+    installModal.addEventListener("click", (e) => {
+      if (e.target === installModal || e.target.closest("[data-close-install]")) {
+        closeInstallModal();
+      }
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !installModal.hidden) closeInstallModal();
+    });
+  })();
+
   // ───────── Positions aleatoires des blobs (figees au load) ─────────
   (function () {
     const b1 = document.querySelector(".blob-1");

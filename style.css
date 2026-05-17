@@ -199,6 +199,17 @@ body::after {
 }
 .stats-btn:active { transform: translateY(0); }
 
+.install-btn {
+  color: var(--accent);
+  border-color: rgba(230, 162, 60, 0.35);
+  background: rgba(230, 162, 60, 0.06);
+}
+.install-btn:hover {
+  color: var(--accent);
+  border-color: rgba(230, 162, 60, 0.7);
+  background: rgba(230, 162, 60, 0.14);
+}
+
 .list-btn {
   display: none;
   flex: 0 0 auto;
@@ -501,6 +512,31 @@ mark {
   font-size: 13px;
 }
 
+/* Install modal : reutilise l'apparence du panneau Stats (easter-stats) */
+.install-inner { max-width: 460px; }
+.install-intro {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+}
+.install-steps {
+  margin: 0;
+  padding-left: 22px;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.install-steps li { margin-bottom: 8px; }
+.install-steps strong { color: var(--accent); font-weight: 600; }
+.install-steps svg {
+  width: 16px;
+  height: 16px;
+  vertical-align: -3px;
+  color: var(--accent);
+  margin: 0 2px;
+}
+
 /* ───────── Easter eggs ───────── */
 
 .brand h1 { cursor: default; user-select: none; }
@@ -518,6 +554,8 @@ mark {
   transition: opacity .25s;
   padding: 24px;
 }
+/* l'attribut [hidden] doit reellement masquer (sinon le panneau bloque les clics) */
+.easter-stats[hidden] { display: none; }
 .easter-stats.show { opacity: 1; }
 .easter-stats-inner {
   position: relative;
@@ -656,6 +694,7 @@ mark {
   .stats-btn { width: 36px; height: 36px; padding: 0; justify-content: center; }
   .stats-btn svg { width: 16px; height: 16px; }
   .list-btn { display: inline-flex; }
+  .disc { width: 36px; height: 36px; }
 
   .layout { grid-template-columns: 1fr; }
   .sidebar {
@@ -675,6 +714,12 @@ mark {
   .sidebar-head { padding: 16px 18px 8px; }
 
   .content { padding: 18px; overflow: visible; }
+}
+
+/* Layout "album en 2 rows" : cover + entete sur la 1re ligne, fiche
+   pleine largeur en-dessous. Applique des qu'on est trop etroit, y compris
+   sur les fenetres desktop reduites. */
+@media (max-width: 900px) {
   .album {
     grid-template-columns: 90px 1fr;
     column-gap: 14px;
