@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Generer les icones PNG</title>
+  <style>
+    body { font: 14px system-ui, sans-serif; background: #0e0e10; color: #ececf1; padding: 24px; }
+    button { font: 14px system-ui; padding: 10px 18px; margin: 6px; background: #e6a23c; color: #0e0e10; border: 0; border-radius: 8px; cursor: pointer; }
+    .row { display: flex; gap: 24px; align-items: flex-start; margin-top: 16px; flex-wrap: wrap; }
+    canvas { background: #0e0e10; border: 1px solid #2a2a32; }
+    p { max-width: 640px; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <h1>Generer les icones PNG de la PWA</h1>
+  <p>Clique sur les deux boutons : ca telecharge <code>icon-192.png</code>, <code>icon-512.png</code>, <code>icon-maskable-512.png</code>. Place ces fichiers a la racine du projet (a cote de <code>manifest.webmanifest</code>).</p>
+
+  <div class="row">
+    <div>
+      <h3>Icone normale 192</h3>
+      <canvas id="c192" width="192" height="192"></canvas><br/>
+      <button onclick="dl('c192','icon-192.png')">Telecharger icon-192.png</button>
+    </div>
+    <div>
+      <h3>Icone normale 512</h3>
+      <canvas id="c512" width="512" height="512"></canvas><br/>
+      <button onclick="dl('c512','icon-512.png')">Telecharger icon-512.png</button>
+    </div>
+    <div>
+      <h3>Maskable 512</h3>
+      <canvas id="cmask" width="512" height="512"></canvas><br/>
+      <button onclick="dl('cmask','icon-maskable-512.png')">Telecharger icon-maskable-512.png</button>
+    </div>
+  </div>
+
+<script>
+function drawDisc(ctx, size, opts) {
+  // opts.rounded : coins arrondis (icone normale) vs plein carre (maskable)
+  // opts.safeRatio : le disque occupe safeRatio*size (1.0 normal, 0.7 maskable pour safe-zone)
+  ctx.clearRect(0, 0, size, size);
+
+  // fond
+  ctx.fillStyle = '#0e0e10';
+  if (opts.rounded) {
+    var r = size * 0.18;
+    ctx.beginPath();
+    ctx.moveTo(r, 0);
+    ctx.lineTo(size - r, 0);
+    ctx.quadraticCurveTo(size, 0, size, r);
+    ctx.lineTo(size, size - r);
+    ctx.quadraticCurveTo(size, size, size - r, size);
+    ctx.lineTo(r, size);
+    ctx.quadraticCurveTo(0, size, 0, size - r);
+    ctx.lineTo(0, r);
+    ctx.quadraticCurveTo(0, 0, r, 0);
+    ctx.closePath();
+    ctx.fill();
+  } else {
+    ctx.fillRect(0, 0, size, size);
+  }
+
+  var cx = size / 2, cy = size / 2;
+  var R = (size / 2) * opts.safeRatio;
+
+  // disque vinyle
+  ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI*2);
+  ctx.fillStyle = '#1f1f25'; ctx.fill();
+  ctx.lineWidth = Math.max(1, size/256);
+  ctx.strokeStyle = '#3a3a44'; ctx.stroke();
+
+  // sillons
+  ctx.strokeStyle = '#2a2a32';
+  ctx.lineWidth = Math.max(1, size/512);
+  var grooves = [0.89, 0.78, 0.67, 0.56, 0.45];
+  for (var i = 0; i < grooves.length; i++) {
+    ctx.beginPath(); ctx.arc(cx, cy, R * grooves[i], 0, Math.PI*2); ctx.stroke();
+  }
+
+  // label central
+  ctx.beginPath(); ctx.arc(cx, cy, R * 0.42, 0, Math.PI*2);
+  ctx.fillStyle = '#e6a23c'; ctx.fill();
+  ctx.strokeStyle = '#b88224'; ctx.lineWidth = Math.max(1, size/512); ctx.stroke();
+
+  // trou
+  ctx.beginPath(); ctx.arc(cx, cy, R * 0.07, 0, Math.PI*2);
+  ctx.fillStyle = '#0e0e10'; ctx.fill();
+}
+
+drawDisc(document.getElementById('c192').getContext('2d'), 192, { rounded: true,  safeRatio: 0.78 });
+drawDisc(document.getElementById('c512').getContext('2d'), 512, { rounded: true,  safeRatio: 0.78 });
+drawDisc(document.getElementById('cmask').getContext('2d'), 512, { rounded: false, safeRatio: 0.62 });
+
+function dl(canvasId, filename) {
+  var c = document.getElementById(canvasId);
+  c.toBlob(function(blob) {
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
+  }, 'image/png');
+}
+</script>
+</body>
+</html>
