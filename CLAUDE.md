@@ -17,6 +17,17 @@ L'utilisateur prefere :
 3. Cle = `artiste_normalise::titre_normalise` (tout minuscules, suffixe Discogs ` (N)` retire).
 4. Fiche = mini-critique de 6-10 phrases en francais : place dans la discographie, genre/son, morceaux marquants, importance dans la Musique (mouvement, heritage). **Pas de notation, pas de superlatifs vides, ne JAMAIS inventer un titre/feat/chiffre.**
 
+## Workflow nouveau CSV Discogs
+
+Quand l'utilisateur dit « j'ai ajoute un nouveau fichier CSV » (ou equivalent), faire systematiquement :
+
+1. `diff` entre l'ancien CSV (`LunaticPan-collection-YYYYMMDD-HHMM.csv` precedent) et le nouveau pour reperer les ajouts/modifications.
+2. Mettre a jour `_parse_oneshot.mjs` pour pointer le nouveau CSV (`csvPath`).
+3. `node _parse_oneshot.mjs` -> regenere `collection.js`.
+4. Pour chaque NOUVELLE cle (`artiste::titre` absente de `fiches.js`), rediger une fiche selon le workflow ci-dessus. Une simple nouvelle edition (meme cle, autre pressage) ne necessite pas de nouvelle fiche — Discogs agrege les pressings sous la meme cle.
+5. Si une ligne CSV existante a ete corrigee (typo dans le titre, double-espace -> simple, annee corrigee...), la cle change : il faut mettre a jour la cle de la fiche existante et reflechir si le contenu doit etre ajuste (ex: annee).
+6. Verifier que toutes les nouvelles cles dans `fiches.js` matchent bien celles de `collection.js` regenere.
+
 ## Architecture site
 
 Trois globals charges par `index.html` via `<script src>` : `window.COLLECTION` (collection.js, auto-gen depuis le CSV), `window.FICHES` (fiches.js, redige), `window.COVERS` (covers.js, URLs Discogs des covers). `app.js` lit ces globals. Pas de backend, pas de fetch — ca marche en double-clic depuis `file://`.

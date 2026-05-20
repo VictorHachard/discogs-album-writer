@@ -2507,6 +2507,31 @@ window.COLLECTION = [
     ]
   },
   {
+    "artist": "Donner Party",
+    "albums": [
+      {
+        "key": "donner party::donner party",
+        "title": "Donner Party",
+        "released": "1988",
+        "pressings": [
+          {
+            "release_id": "2620180",
+            "catalog": "PITCH 11",
+            "label": "Pitch-A-Tent",
+            "format": "LP, Album",
+            "rating": "",
+            "released": "1988",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-05-20 01:44:16",
+            "title": "Donner Party"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "artist": "Dr. Feelgood",
     "albums": [
       {
@@ -3484,6 +3509,19 @@ window.COLLECTION = [
         "released": "1973",
         "pressings": [
           {
+            "release_id": "15541746",
+            "catalog": "6499 761",
+            "label": "Charisma",
+            "format": "LP, Album",
+            "rating": "",
+            "released": "1973",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-05-20 01:55:01",
+            "title": "Selling England By The Pound"
+          },
+          {
             "release_id": "22992398",
             "catalog": "6369 944, CAS 1074",
             "label": "Charisma, Charisma",
@@ -3799,6 +3837,31 @@ window.COLLECTION = [
             "notes": "",
             "date_added": "2025-04-22 05:32:39",
             "title": "Mother"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "artist": "Glenn Miller And His Orchestra",
+    "albums": [
+      {
+        "key": "glenn miller and his orchestra::the unforgettable glenn miller",
+        "title": "The Unforgettable Glenn Miller",
+        "released": "1977",
+        "pressings": [
+          {
+            "release_id": "698534",
+            "catalog": "TVL1",
+            "label": "RCA, RCA Victor",
+            "format": "LP, Comp, RM, Gat",
+            "rating": "",
+            "released": "1977",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-05-20 01:59:31",
+            "title": "The Unforgettable Glenn Miller"
           }
         ]
       }
@@ -4405,6 +4468,31 @@ window.COLLECTION = [
             "notes": "",
             "date_added": "2026-04-08 10:14:11",
             "title": "Little Queen"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "artist": "Heatwave",
+    "albums": [
+      {
+        "key": "heatwave::candles",
+        "title": "Candles",
+        "released": "1980",
+        "pressings": [
+          {
+            "release_id": "22237564",
+            "catalog": "GTLP 047",
+            "label": "GTO",
+            "format": "LP, Album, Promo, W/Lbl",
+            "rating": "",
+            "released": "1980",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-05-20 01:57:07",
+            "title": "Candles"
           }
         ]
       }
@@ -6076,6 +6164,26 @@ window.COLLECTION = [
             "title": "Irrlicht"
           }
         ]
+      },
+      {
+        "key": "klaus schulze::mirage",
+        "title": "Mirage",
+        "released": "1977",
+        "pressings": [
+          {
+            "release_id": "87159",
+            "catalog": "28633 ET",
+            "label": "Ariola",
+            "format": "LP, Album, Gat",
+            "rating": "",
+            "released": "1977",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-05-20 01:46:29",
+            "title": "Mirage"
+          }
+        ]
       }
     ]
   },
@@ -6328,6 +6436,26 @@ window.COLLECTION = [
             "notes": "",
             "date_added": "2026-04-18 06:15:25",
             "title": "Mudslide"
+          }
+        ]
+      },
+      {
+        "key": "led zeppelin::physical graffiti",
+        "title": "Physical Graffiti",
+        "released": "2025",
+        "pressings": [
+          {
+            "release_id": "35085983",
+            "catalog": "R1 727585, 0603497815333",
+            "label": "Swan Song, Swan Song",
+            "format": "2xLP, Album, RE, RM, 180 + LP + Dlx, RE, 50t",
+            "rating": "",
+            "released": "2025",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-05-17 23:08:02",
+            "title": "Physical Graffiti"
           }
         ]
       }
@@ -8688,9 +8816,9 @@ window.COLLECTION = [
     "artist": "Richard Gotainer",
     "albums": [
       {
-        "key": "richard gotainer::grands  succès",
-        "title": "Grands  Succès",
-        "released": "1981",
+        "key": "richard gotainer::grands succès",
+        "title": "Grands Succès",
+        "released": "1983",
         "pressings": [
           {
             "release_id": "3452741",
@@ -8698,12 +8826,12 @@ window.COLLECTION = [
             "label": "Philips",
             "format": "LP, Comp",
             "rating": "",
-            "released": "1981",
+            "released": "1983",
             "media_condition": "",
             "sleeve_condition": "",
             "notes": "",
             "date_added": "2025-04-22 05:15:38",
-            "title": "Grands  Succès"
+            "title": "Grands Succès"
           }
         ]
       },
@@ -10497,6 +10625,31 @@ window.COLLECTION = [
     ]
   },
   {
+    "artist": "The Beatles",
+    "albums": [
+      {
+        "key": "the beatles::1967-1970",
+        "title": "1967-1970",
+        "released": "1973",
+        "pressings": [
+          {
+            "release_id": "851518",
+            "catalog": "PCSP 718, OC 192 o 05309-10",
+            "label": "Apple Records, Apple Records",
+            "format": "2xLP, Comp",
+            "rating": "",
+            "released": "1973",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-05-20 01:53:21",
+            "title": "1967-1970"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "artist": "The Cars",
     "albums": [
       {
@@ -11460,6 +11613,31 @@ window.COLLECTION = [
             "notes": "",
             "date_added": "2025-04-24 00:47:29",
             "title": "On The Road"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "artist": "Up With People",
+    "albums": [
+      {
+        "key": "up with people::let all the people in",
+        "title": "Let All The People In",
+        "released": "1971",
+        "pressings": [
+          {
+            "release_id": "4406755",
+            "catalog": "S 64728",
+            "label": "CBS, Up With People! Records",
+            "format": "LP",
+            "rating": "",
+            "released": "1971",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-05-20 01:45:44",
+            "title": "Let All The People In"
           }
         ]
       }
