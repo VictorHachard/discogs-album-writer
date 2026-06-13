@@ -27,6 +27,8 @@ Quand l'utilisateur dit « j'ai ajoute un nouveau fichier CSV » (ou equivalent)
 4. Pour chaque NOUVELLE cle (`artiste::titre` absente de `fiches.js`), rediger une fiche selon le workflow ci-dessus. Une simple nouvelle edition (meme cle, autre pressage) ne necessite pas de nouvelle fiche — Discogs agrege les pressings sous la meme cle.
 5. Si une ligne CSV existante a ete corrigee (typo dans le titre, double-espace -> simple, annee corrigee...), la cle change : il faut mettre a jour la cle de la fiche existante et reflechir si le contenu doit etre ajuste (ex: annee).
 6. Verifier que toutes les nouvelles cles dans `fiches.js` matchent bien celles de `collection.js` regenere.
+7. **Recuperer les covers manquantes** : `node fetch_covers.mjs`. Le script fait le diff `collection.js` vs `covers.js` et ne va chercher QUE les cles sans cover (pas de refetch en masse), via l'API Discogs (`release_id` -> image `primary`, fallback sur le `master` si la release n'a pas d'image). Il met a jour `covers.js`. Sans ca, les nouveaux albums s'affichent sans pochette.
+8. Verifier qu'il ne reste aucun album sans cover (le script l'indique en fin de run).
 
 ## Architecture site
 
@@ -52,4 +54,5 @@ Discogs ajoute ` (N)` aux artistes homonymes : `Magma (6)`, `Tool (4)`... La reg
 
 - Inventer des morceaux, classements, productions ou influences : si tu n'es pas sur, fiche courte basee sur les seules metadonnees (artiste, annee, label, format).
 - Ajouter des libs (Bootstrap, jQuery, React) — l'utilisateur a explicitement demande du pur HTML/CSS/JS.
-- Reintroduire un script qui appelle l'API Discogs : les covers sont deja figees dans `covers.js`. Si une URL casse, remplacer manuellement plutot que refetch en masse.
+- **Refetch en masse** des covers : `fetch_covers.mjs` ne doit recuperer QUE les cles manquantes (son comportement par defaut). Ne pas lancer `--force` ni reecrire les covers existantes. Si une URL casse ponctuellement, la remplacer a la main plutot que tout refetch.
+- Committer le token : `fetch_covers.mjs` lit le token Discogs depuis `.discogs_token` (gitignore) ou `$env:DISCOGS_TOKEN`. Ne jamais ecrire le token en dur dans un fichier suivi.

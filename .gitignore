@@ -21,6 +21,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Secret : token API Discogs pour fetch_covers.mjs
+.discogs_token
+
 # Logs / temp
 *.log
 *.tmp
