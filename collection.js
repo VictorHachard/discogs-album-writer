@@ -929,6 +929,26 @@ window.COLLECTION = [
             "title": "Time Honoured Ghosts"
           }
         ]
+      },
+      {
+        "key": "barclay james harvest::turn of the tide",
+        "title": "Turn Of The Tide",
+        "released": "1981",
+        "pressings": [
+          {
+            "release_id": "569730",
+            "catalog": "2383 608",
+            "label": "Polydor",
+            "format": "LP, Album",
+            "rating": "",
+            "released": "1981",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-06-11 04:39:59",
+            "title": "Turn Of The Tide"
+          }
+        ]
       }
     ]
   },
@@ -997,6 +1017,31 @@ window.COLLECTION = [
             "notes": "",
             "date_added": "2025-04-22 01:35:34",
             "title": "Beck, Bogert & Appice"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "artist": "Bee Gees",
+    "albums": [
+      {
+        "key": "bee gees::bee gees all time greatest hits",
+        "title": "Bee Gees All Time Greatest Hits",
+        "released": "1977",
+        "pressings": [
+          {
+            "release_id": "928113",
+            "catalog": "2479 209, RSO 2479 209",
+            "label": "RSO, RSO",
+            "format": "LP, Comp",
+            "rating": "",
+            "released": "1977",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-06-11 04:42:05",
+            "title": "Bee Gees All Time Greatest Hits"
           }
         ]
       }
@@ -2272,6 +2317,26 @@ window.COLLECTION = [
     "artist": "Deep Purple",
     "albums": [
       {
+        "key": "deep purple::machine head",
+        "title": "Machine Head",
+        "released": "1972",
+        "pressings": [
+          {
+            "release_id": "1149349",
+            "catalog": "2 C 064-93261, 2C 064-93.261",
+            "label": "Purple Records, Purple Records",
+            "format": "LP, Album, Gat",
+            "rating": "",
+            "released": "1972",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-06-12 23:58:58",
+            "title": "Machine Head"
+          }
+        ]
+      },
+      {
         "key": "deep purple::made in japan",
         "title": "Made In Japan",
         "released": "1972",
@@ -2629,6 +2694,31 @@ window.COLLECTION = [
             "notes": "",
             "date_added": "2025-04-22 04:35:50",
             "title": "Their Greatest Hits 1971-1975"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "artist": "Eberhard Weber",
+    "albums": [
+      {
+        "key": "eberhard weber::yellow fields",
+        "title": "Yellow Fields",
+        "released": "1976",
+        "pressings": [
+          {
+            "release_id": "2284158",
+            "catalog": "ECM 1066 ST, ECM 1066, 2301 066",
+            "label": "ECM Records, ECM Records, ECM Records",
+            "format": "LP, Album",
+            "rating": "",
+            "released": "1976",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-06-11 04:35:20",
+            "title": "Yellow Fields"
           }
         ]
       }
@@ -3239,6 +3329,51 @@ window.COLLECTION = [
             "title": "Tusk"
           }
         ]
+      },
+      {
+        "key": "fleetwood mac::big love",
+        "title": "Big Love",
+        "released": "1987",
+        "pressings": [
+          {
+            "release_id": "177922",
+            "catalog": "920 673-0",
+            "label": "Warner Bros. Records",
+            "format": "12\", Single",
+            "rating": "",
+            "released": "1987",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-05-26 01:43:58",
+            "title": "Big Love"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "artist": "Francesca Solleville",
+    "albums": [
+      {
+        "key": "francesca solleville::chante la violence et l'espoir",
+        "title": "Chante La Violence Et L'Espoir",
+        "released": "1972",
+        "pressings": [
+          {
+            "release_id": "13105456",
+            "catalog": "LD 5808",
+            "label": "BAM",
+            "format": "LP, Album",
+            "rating": "",
+            "released": "1972",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-06-11 04:33:05",
+            "title": "Chante La Violence Et L'Espoir"
+          }
+        ]
       }
     ]
   },
@@ -3789,6 +3924,26 @@ window.COLLECTION = [
             "title": "Héra"
           }
         ]
+      },
+      {
+        "key": "georgio::années sauvages part.1 & 2",
+        "title": "Années Sauvages Part.1 & 2",
+        "released": "2023",
+        "pressings": [
+          {
+            "release_id": "29227942",
+            "catalog": "3448416",
+            "label": "Panenka Music",
+            "format": "LP, Album, Flu + LP, Album + LP, S/Sided, Album, E",
+            "rating": "",
+            "released": "2023",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-05-26 11:00:33",
+            "title": "Années Sauvages Part.1 & 2"
+          }
+        ]
       }
     ]
   },
@@ -3796,10 +3951,96 @@ window.COLLECTION = [
     "artist": "Gérard Manset",
     "albums": [
       {
+        "key": "gérard manset::la mort d'orion",
+        "title": "La Mort D'Orion",
+        "released": "1971",
+        "pressings": [
+          {
+            "release_id": "12525759",
+            "catalog": "2C 064-15628, 2C 064 - 15.628",
+            "label": "Pathé, Pathé, Zenon, Zenon",
+            "format": "LP, Album, RP, Ⓤ G",
+            "rating": "",
+            "released": "1971",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-06-11 04:32:05",
+            "title": "La Mort D'Orion"
+          }
+        ]
+      },
+      {
+        "key": "gérard manset::manset",
+        "title": "Manset",
+        "released": "1975",
+        "pressings": [
+          {
+            "release_id": "749102",
+            "catalog": "2C 064 13038",
+            "label": "EMI",
+            "format": "LP, Album",
+            "rating": "",
+            "released": "1975",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-06-11 04:29:54",
+            "title": "Manset"
+          },
+          {
+            "release_id": "749102",
+            "catalog": "2C 064 13038",
+            "label": "EMI",
+            "format": "LP, Album",
+            "rating": "",
+            "released": "1975",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-06-11 04:29:56",
+            "title": "Manset"
+          }
+        ]
+      },
+      {
+        "key": "gérard manset::rien à raconter",
+        "title": "Rien À Raconter",
+        "released": "1976",
+        "pressings": [
+          {
+            "release_id": "749105",
+            "catalog": "2C 068-14281",
+            "label": "EMI",
+            "format": "LP, Album, Gat",
+            "rating": "",
+            "released": "1976",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-06-11 04:28:33",
+            "title": "Rien À Raconter"
+          }
+        ]
+      },
+      {
         "key": "gérard manset::2870",
         "title": "2870",
         "released": "1978",
         "pressings": [
+          {
+            "release_id": "697870",
+            "catalog": "2C 068 14482",
+            "label": "EMI",
+            "format": "LP, Album",
+            "rating": "",
+            "released": "1978",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-06-11 04:31:29",
+            "title": "2870"
+          },
           {
             "release_id": "10135222",
             "catalog": "2C 068 14482",
@@ -3812,6 +4053,66 @@ window.COLLECTION = [
             "notes": "",
             "date_added": "2026-05-12 02:09:43",
             "title": "2870"
+          }
+        ]
+      },
+      {
+        "key": "gérard manset::royaume de siam",
+        "title": "Royaume De Siam",
+        "released": "1979",
+        "pressings": [
+          {
+            "release_id": "698040",
+            "catalog": "2C 070 14721",
+            "label": "EMI",
+            "format": "LP, Album",
+            "rating": "",
+            "released": "1979",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-06-11 04:30:50",
+            "title": "Royaume De Siam"
+          }
+        ]
+      },
+      {
+        "key": "gérard manset::l'atelier du crabe",
+        "title": "L'Atelier Du Crabe",
+        "released": "1981",
+        "pressings": [
+          {
+            "release_id": "749084",
+            "catalog": "2 C 070-72291, C 070-72291",
+            "label": "Pathé, Pathé",
+            "format": "LP, Album",
+            "rating": "",
+            "released": "1981",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-06-11 04:28:13",
+            "title": "L'Atelier Du Crabe"
+          }
+        ]
+      },
+      {
+        "key": "gérard manset::comme un guerrier / l'enfant qui vole",
+        "title": "Comme Un Guerrier / L'enfant Qui Vole",
+        "released": "1982",
+        "pressings": [
+          {
+            "release_id": "2304856",
+            "catalog": "2 C 070-72556",
+            "label": "Pathé, EMI",
+            "format": "LP, Album",
+            "rating": "",
+            "released": "1982",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-06-11 04:29:28",
+            "title": "Comme Un Guerrier / L'enfant Qui Vole"
           }
         ]
       }
@@ -4729,6 +5030,31 @@ window.COLLECTION = [
     ]
   },
   {
+    "artist": "Ipi-Tombi",
+    "albums": [
+      {
+        "key": "ipi-tombi::ipi tombi (the original cast)",
+        "title": "Ipi Tombi (The Original Cast)",
+        "released": "1975",
+        "pressings": [
+          {
+            "release_id": "2611812",
+            "catalog": "MFP 54754",
+            "label": "Music For Pleasure",
+            "format": "LP",
+            "rating": "",
+            "released": "1975",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-06-11 04:42:55",
+            "title": "Ipi Tombi (The Original Cast)"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "artist": "Iron Butterfly",
     "albums": [
       {
@@ -5580,6 +5906,31 @@ window.COLLECTION = [
     ]
   },
   {
+    "artist": "Joan Pau Verdier",
+    "albums": [
+      {
+        "key": "joan pau verdier::tabou-le-chat",
+        "title": "Tabou-Le-Chat",
+        "released": "1977",
+        "pressings": [
+          {
+            "release_id": "4642251",
+            "catalog": "9101 129",
+            "label": "Philips",
+            "format": "LP, Album",
+            "rating": "",
+            "released": "1977",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-06-11 04:40:37",
+            "title": "Tabou-Le-Chat"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "artist": "Joe Cocker",
     "albums": [
       {
@@ -6048,6 +6399,26 @@ window.COLLECTION = [
         ]
       },
       {
+        "key": "king crimson::in the court of the crimson king (an observation by king crimson)",
+        "title": "In The Court Of The Crimson King (An Observation By King Crimson)",
+        "released": "1969",
+        "pressings": [
+          {
+            "release_id": "9697762",
+            "catalog": "SD 8245",
+            "label": "Atlantic",
+            "format": "LP, Album, Gat",
+            "rating": "",
+            "released": "1969",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-06-12 23:57:08",
+            "title": "In The Court Of The Crimson King (An Observation By King Crimson)"
+          }
+        ]
+      },
+      {
         "key": "king crimson::earthbound",
         "title": "Earthbound",
         "released": "1972",
@@ -6309,15 +6680,15 @@ window.COLLECTION = [
       {
         "key": "led zeppelin::untitled",
         "title": "Untitled",
-        "released": "1971",
+        "released": "1972",
         "pressings": [
           {
             "release_id": "5435395",
-            "catalog": "50008, 50008 A",
-            "label": "Atlantic, Atlantic",
+            "catalog": "50008",
+            "label": "Atlantic",
             "format": "LP, Album",
             "rating": "",
-            "released": "1971",
+            "released": "1972",
             "media_condition": "",
             "sleeve_condition": "",
             "notes": "",
@@ -6356,6 +6727,26 @@ window.COLLECTION = [
             "notes": "griffes sur les 4 faces, ca saute au milieu de dazed and confused",
             "date_added": "2025-06-14 10:13:57",
             "title": "The Soundtrack From The Film The Song Remains The Same"
+          }
+        ]
+      },
+      {
+        "key": "led zeppelin::in through the out door",
+        "title": "In Through The Out Door",
+        "released": "1979",
+        "pressings": [
+          {
+            "release_id": "3963061",
+            "catalog": "SS 59 410, SS 59410, SS 16002",
+            "label": "Swan Song, Swan Song, Swan Song",
+            "format": "LP, Album, \"F\"",
+            "rating": "",
+            "released": "1979",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-06-12 23:55:12",
+            "title": "In Through The Out Door"
           }
         ]
       },
@@ -6400,6 +6791,26 @@ window.COLLECTION = [
         ]
       },
       {
+        "key": "led zeppelin::houses of the holy",
+        "title": "Houses Of The Holy",
+        "released": "2014",
+        "pressings": [
+          {
+            "release_id": "6224441",
+            "catalog": "8122796573, 8122-79657-3",
+            "label": "Atlantic, Atlantic",
+            "format": "LP, Album, RE, RM, 180",
+            "rating": "",
+            "released": "2014",
+            "media_condition": "Mint (M)",
+            "sleeve_condition": "Mint (M)",
+            "notes": "",
+            "date_added": "2026-05-26 01:45:42",
+            "title": "Houses Of The Holy"
+          }
+        ]
+      },
+      {
         "key": "led zeppelin::led zeppelin ii",
         "title": "Led Zeppelin II",
         "released": "2014",
@@ -6416,6 +6827,39 @@ window.COLLECTION = [
             "notes": "",
             "date_added": "2025-04-22 23:51:36",
             "title": "Led Zeppelin II"
+          },
+          {
+            "release_id": "3320603",
+            "catalog": "921 021, N° 921021",
+            "label": "Atlantic, Atlantic",
+            "format": "LP, Album",
+            "rating": "",
+            "released": "1969",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-06-12 23:56:09",
+            "title": "Led Zeppelin II"
+          }
+        ]
+      },
+      {
+        "key": "led zeppelin::the lost sessions",
+        "title": "The Lost Sessions",
+        "released": "2022",
+        "pressings": [
+          {
+            "release_id": "23124029",
+            "catalog": "OTS010",
+            "label": "Off The Shelf",
+            "format": "2xLP, Unofficial",
+            "rating": "",
+            "released": "2022",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-05-26 10:59:32",
+            "title": "The Lost Sessions"
           }
         ]
       },
@@ -7002,6 +7446,31 @@ window.COLLECTION = [
             "notes": "",
             "date_added": "2025-04-23 00:13:17",
             "title": "Le Bestiaire"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "artist": "Mama Béa Tékielski",
+    "albums": [
+      {
+        "key": "mama béa tékielski::la folle",
+        "title": "La Folle",
+        "released": "1977",
+        "pressings": [
+          {
+            "release_id": "1793062",
+            "catalog": "ISL 9010",
+            "label": "Isadora",
+            "format": "2xLP, Album, Gat",
+            "rating": "",
+            "released": "1977",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-06-11 04:45:26",
+            "title": "La Folle"
           }
         ]
       }
@@ -7812,6 +8281,31 @@ window.COLLECTION = [
     ]
   },
   {
+    "artist": "Noir Désir",
+    "albums": [
+      {
+        "key": "noir désir::tostaky",
+        "title": "Tostaky",
+        "released": "2012",
+        "pressings": [
+          {
+            "release_id": "4096550",
+            "catalog": "372 331-8",
+            "label": "Barclay",
+            "format": "LP, Album, RE",
+            "rating": "",
+            "released": "2012",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-05-25 22:56:35",
+            "title": "Tostaky"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "artist": "Patti Smith",
     "albums": [
       {
@@ -8374,6 +8868,26 @@ window.COLLECTION = [
             "notes": "",
             "date_added": "2025-06-05 02:09:37",
             "title": "Paris Theatre 1970 (Live Radio Broadcast)"
+          }
+        ]
+      },
+      {
+        "key": "pink floyd::pink floyd at pompeii mcmlxxii",
+        "title": "Pink Floyd At Pompeii MCMLXXII",
+        "released": "2025",
+        "pressings": [
+          {
+            "release_id": "33849456",
+            "catalog": "19802876231",
+            "label": "Columbia, Sony Music",
+            "format": "2xLP, Album, Rem",
+            "rating": "",
+            "released": "2025",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-05-26 11:00:00",
+            "title": "Pink Floyd At Pompeii MCMLXXII"
           }
         ]
       }
@@ -9328,6 +9842,51 @@ window.COLLECTION = [
             "notes": "",
             "date_added": "2025-04-23 05:27:59",
             "title": "Promise"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "artist": "Saint-Preux",
+    "albums": [
+      {
+        "key": "saint-preux::your hair (d'après un poème de charles baudelaire)",
+        "title": "Your Hair (D'Après Un Poème De Charles Baudelaire)",
+        "released": "1975",
+        "pressings": [
+          {
+            "release_id": "22577384",
+            "catalog": "HEL 67.052, 67.052",
+            "label": "Héloïse Disques, Carrere",
+            "format": "LP, Mono, Gat",
+            "rating": "",
+            "released": "1975",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-06-11 04:44:20",
+            "title": "Your Hair (D'Après Un Poème De Charles Baudelaire)"
+          }
+        ]
+      },
+      {
+        "key": "saint-preux::samara",
+        "title": "Samara",
+        "released": "1976",
+        "pressings": [
+          {
+            "release_id": "31582363",
+            "catalog": "HEL 67.118, 67.118",
+            "label": "Héloïse Disques, Héloïse Disques",
+            "format": "LP, Album, Gat",
+            "rating": "",
+            "released": "1976",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-06-11 04:44:42",
+            "title": "Samara"
           }
         ]
       }
@@ -10986,6 +11545,26 @@ window.COLLECTION = [
         ]
       },
       {
+        "key": "the grateful dead::europe '72",
+        "title": "Europe '72",
+        "released": "1972",
+        "pressings": [
+          {
+            "release_id": "6017518",
+            "catalog": "WB 66 019, 3WX 2668",
+            "label": "Warner Bros. Records, Warner Bros. Records",
+            "format": "3xLP, Album, Tri",
+            "rating": "",
+            "released": "1972",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-05-26 01:41:35",
+            "title": "Europe '72"
+          }
+        ]
+      },
+      {
         "key": "the grateful dead::wake of the flood",
         "title": "Wake Of The Flood",
         "released": "1973",
@@ -12578,6 +13157,31 @@ window.COLLECTION = [
             "notes": "enormement godole",
             "date_added": "2025-04-24 01:40:54",
             "title": "Drama"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "artist": "Zabba Lindner & Carsten Bohn",
+    "albums": [
+      {
+        "key": "zabba lindner & carsten bohn::vollbedienung of percussion",
+        "title": "Vollbedienung Of Percussion",
+        "released": "1974",
+        "pressings": [
+          {
+            "release_id": "909754",
+            "catalog": "brain 1047, 1047",
+            "label": "Brain, Brain, Metronome",
+            "format": "LP, Album",
+            "rating": "",
+            "released": "1974",
+            "media_condition": "",
+            "sleeve_condition": "",
+            "notes": "",
+            "date_added": "2026-06-11 04:34:04",
+            "title": "Vollbedienung Of Percussion"
           }
         ]
       }

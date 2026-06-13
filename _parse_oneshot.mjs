@@ -4,7 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = path.dirname(new URL(import.meta.url).pathname.replace(/^\//, ""));
-const csvPath = path.join(root, "LunaticPan-collection-20260520-2038.csv");
+const csvPath = path.join(root, "LunaticPan-collection-20260613-0700.csv");
 const outPath = path.join(root, "collection.js");
 
 function parseCsv(text) {
